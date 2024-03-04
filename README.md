@@ -14,6 +14,7 @@
 🔧 I'm currently working on:
 - Spotify API
 - Automated parcel tracking system
+- Meta data extraction
 
 🌐 Connect with Me:
 - LinkedIn: https://www.linkedin.com/in/alouber/
