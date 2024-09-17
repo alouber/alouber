@@ -18,7 +18,6 @@
 
 🌐 Connect with Me:
 - LinkedIn: https://www.linkedin.com/in/alouber/
-- Website: http://aymericklouber.com/
 
 📫 Let's Collaborate:
 - Open to interesting projects and collaborations
