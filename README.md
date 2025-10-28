@@ -21,10 +21,9 @@ Based in Copenhagen, Denmark, with a proven track record of building automated d
 
 
 🚀 Tech Stack:
-- Languages: C/C++, Python
+- Languages: C/C++, Python, SQL
 - Tools: Qt, SFML, Pandas, Matplotlib, NumPy, Visual Code
 - Databases: MongoDB
-- Other: 
 
 📈 Current Focus:
 
