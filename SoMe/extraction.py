@@ -16,6 +16,7 @@ def get_reach(access_token:str,year:int,metric_type:str): #Return a list of valu
 
 
     version = "22.0"
+    acc = "17841400402569880" 
     t_data = []
 
 #Get the 1st and last day of the month
@@ -30,7 +31,7 @@ def get_reach(access_token:str,year:int,metric_type:str): #Return a list of valu
 
 
         if (metric_type == 'total_value'): #Fetch an aggregation of the reach for each month
-            url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=reach&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+            url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=reach&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
             
 
             response = requests.get(url)
@@ -49,7 +50,7 @@ def get_reach(access_token:str,year:int,metric_type:str): #Return a list of valu
 
 
         elif (metric_type == 'time_series'): #Fetch of the reach by time period (every day) for each month
-            url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=reach&period=day&since={start}&until={end}&metric_type=time_series&access_token={access_token}"
+            url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=reach&period=day&since={start}&until={end}&metric_type=time_series&access_token={access_token}"
             response = requests.get(url)
             result = response.json()
 
@@ -77,7 +78,7 @@ def get_weekly_profile_view(access_token:str,year:int,week:int):
         start = time.mktime(date.timetuple())
         end = time.mktime(last_date.timetuple())
 
-        url = f"https://graph.facebook.com/v21.0/17841400402569872/insights?metric=profile_views&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+        url = f"https://graph.facebook.com/v21.0/{acc}/insights?metric=profile_views&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
         response = requests.get(url)
         result = response.json()
 
@@ -104,7 +105,7 @@ def get_weekly_user_stats(access_token:str,year:int,week:int):
         start = time.mktime(date.timetuple())
         end = time.mktime(last_date.timetuple())
 
-        url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=profile_links_taps,follows_unfollows&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+        url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=profile_links_taps,follows_unfollows&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
         response = requests.get(url)
         result = response.json()
 
@@ -138,7 +139,7 @@ def get_total_interaction(access_token:str,year:int,breakdown:bool): #Return a l
 
 
         if (breakdown): #Fetch interaction for each month with the breakdown by media type
-            url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=total_interactions&period=day&breakdown=media_product_type&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+            url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=total_interactions&period=day&breakdown=media_product_type&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
             
 
             response = requests.get(url)
@@ -174,7 +175,7 @@ def get_total_interaction(access_token:str,year:int,breakdown:bool): #Return a l
 
 
         else : #Fetch of the interaction by time period (every day) for each month
-            url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=total_interactions&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+            url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=total_interactions&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
             response = requests.get(url)
 
 
@@ -280,7 +281,7 @@ def get_post_reach_byhour(access_token:str,media_id: int,date:datetime): #Return
 
 
         
-        url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=reach&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+        url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=reach&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
         response = requests.get(url)
         result = response.json()
 
@@ -376,11 +377,11 @@ def weekly_report(access_token:str,year: int,week:int):
     start = time.mktime(date.timetuple())
     end = time.mktime(last_date.timetuple())
 
-    url = f"https://graph.facebook.com/v{version}/17841400402569872/media?fields=id,like_count,permalink,media_url,media_type,timestamp,caption&period=day&since={start}&until={end}&access_token={access_token}"
+    url = f"https://graph.facebook.com/v{version}/{acc}/media?fields=id,like_count,permalink,media_url,media_type,timestamp,caption&period=day&since={start}&until={end}&access_token={access_token}"
     response_media = requests.get(url)
     result_media = response_media.json()
 
-    url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=likes,views,shares,saved,follows&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
+    url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=likes,views,shares,saved,follows&period=day&since={start}&until={end}&metric_type=total_value&access_token={access_token}"
     response_insights = requests.get(url)
     result_insights = response_insights.json()
 
@@ -428,7 +429,7 @@ def weekly_audience(access_token):
 
 
 
-    url = f"https://graph.facebook.com/v{version}/17841400402569872/insights?metric=engaged_audience_demographics,reached_audience_demographics,follower_demographics&period=lifetime&timeframe=this_week&metric_type=total_value&breakdown=country&access_token={access_token}"
+    url = f"https://graph.facebook.com/v{version}/{acc}/insights?metric=engaged_audience_demographics,reached_audience_demographics,follower_demographics&period=lifetime&timeframe=this_week&metric_type=total_value&breakdown=country&access_token={access_token}"
     response_media = requests.get(url)
     result_media = response_media.json()
     
